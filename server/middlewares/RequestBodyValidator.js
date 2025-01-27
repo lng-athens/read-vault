@@ -22,7 +22,8 @@ const ValidateUserRequestBody = (req, res, next) => {
         username,
         pen_name,
         email,
-        password
+        password,
+        userId
     } = req.body;
 
     let errorFields = [];
@@ -34,6 +35,7 @@ const ValidateUserRequestBody = (req, res, next) => {
     if (pen_name && !isName(pen_name)) {errorFields.push('pen_name')}
     if (email && !validator.isEmail(email)) {errorFields.push('email')}
     if (password && !validator.isStrongPassword(password, {minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1})) {errorFields.push('password')}
+    if (userId && !(isUsername(userId) || validator.isEmail(userId))) {errorFields.push('userId')}
 
     if (errorFields.length > 0) {
         res.status(400);
