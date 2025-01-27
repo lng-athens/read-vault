@@ -9,7 +9,7 @@ const userkeySchema = new Schema({
         type: String,
         required: [true, 'Email is required']
     },
-    privateKeyPEM: {
+    privateKey: {
         type: String,
         required: [true, 'Private key is required']
     }
