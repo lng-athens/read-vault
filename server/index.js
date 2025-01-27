@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const useragent = require('express-useragent');
+const cookieParser = require('cookie-parser');
 const app = express();
 const { connectDB } = require('./configs/database');
 const errorHandler = require('./middlewares/ErrorHandler');
@@ -19,6 +20,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(useragent.express());
+app.use(cookieParser());
 app.set('trust proxy', true);
 
 app.use('/users', require('./routes/userRoutes'));
