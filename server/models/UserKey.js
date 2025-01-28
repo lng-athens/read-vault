@@ -10,7 +10,8 @@ const userkeySchema = new Schema({
         required: [true, 'Email is required']
     },
     privateKey: {
-        type: String,
+        type: [Map],
+        of: Schema.Types.Mixed,
         required: [true, 'Private key is required']
     }
 });
