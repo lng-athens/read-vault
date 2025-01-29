@@ -28,7 +28,9 @@ const bookSchema = new Schema({
         }
     },
     isbn: {
-        type: String
+        type: String,
+        required: [true, 'ISBN is required'],
+        unique: true
     },
     edition: {
         type: String
@@ -65,6 +67,10 @@ const bookSchema = new Schema({
     },
     issue: {
         type: Number
+    },
+    fileSource: {
+        type: String,
+        required: ['Link to file is required']
     },
     isActive: {
         type: Boolean,

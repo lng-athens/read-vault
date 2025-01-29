@@ -14,14 +14,17 @@ const userSchema = new Schema({
     },
     username: {
         type: String,
-        required: [true, 'Username is required']
+        required: [true, 'Username is required'],
+        unique: true
     },
     pen_name: {
-        type: String
+        type: String,
+        unique: true
     },
     email: {
         type: String,
-        required: [true, 'Email is required']
+        required: [true, 'Email is required'],
+        unique: true
     },
     password: {
         type: String,
